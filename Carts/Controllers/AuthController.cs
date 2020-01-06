@@ -142,7 +142,7 @@ namespace Carts.Controllers
             }
             catch (Exception ex)
             {
-                _log.LogInformation(ex.Message+ex.InnerException);
+                _log.LogInformation(ex.Message + ex.InnerException);
                 return StatusCode(500, "An error has occured! Please try again - " + ex.Message);
             }
 
@@ -154,28 +154,28 @@ namespace Carts.Controllers
             string token = string.Empty;
             try
             {
-            
 
-            if (request == null) return null;
-           
-            var claim = _userManager.GetUserClaims(request);
 
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_tokenManagement.Secret));
-            var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+                if (request == null) return null;
 
-            var jwtToken = new JwtSecurityToken(
-                _tokenManagement.Issuer,
-                _tokenManagement.Audience,
-                claim,
-                expires: DateTime.Now.AddMinutes(_tokenManagement.AccessExpiration),
-                signingCredentials: credentials
-            );
-            token = new JwtSecurityTokenHandler().WriteToken(jwtToken);
-            
+                var claim = _userManager.GetUserClaims(request);
+
+                var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_tokenManagement.Secret));
+                var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+
+                var jwtToken = new JwtSecurityToken(
+                    _tokenManagement.Issuer,
+                    _tokenManagement.Audience,
+                    claim,
+                    expires: DateTime.Now.AddMinutes(_tokenManagement.AccessExpiration),
+                    signingCredentials: credentials
+                );
+                token = new JwtSecurityTokenHandler().WriteToken(jwtToken);
+
             }
             catch (Exception ex)
             {
-                
+
             }
             return token;
         }

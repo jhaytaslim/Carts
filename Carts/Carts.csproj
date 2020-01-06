@@ -15,6 +15,7 @@
   <ItemGroup>
     <Compile Remove="Controllers\InvoiceController.cs" />
     <Compile Remove="Data\POCO\AirTableContext - Copy.cs" />
+    <Compile Remove="Data\POCO\AirTableContextCopy.cs" />
     <Compile Remove="Data\POCO\PaymentMethodTb.cs" />
     <Compile Remove="Data\POCO\PaymentTb.cs" />
     <Compile Remove="Data\POCO\WishlistTb.cs" />

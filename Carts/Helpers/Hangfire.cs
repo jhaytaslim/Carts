@@ -63,7 +63,6 @@ namespace Carts.Helpers
                                          .Where(x=>(DateTime.Now.Date - x.DateCreated.Date).TotalDays >= CartDays
                                                     && (DateTime.Now.Date - x.CreatedBy.LastLoginDate.Value.Date).TotalDays < LoginDateEpilson
                                                 )
-                                        //.Select(x=>x.CreatedBy)
                                         .ToList();
             foreach(var cart in mailingUsersForCarts)
             {
@@ -71,7 +70,6 @@ namespace Carts.Helpers
                 var mailRef =  $"Ord{cart?.OrderReference}{cart?.CreatedBy?.UserId.ToString()}" ;
                 var user = cart?.CreatedBy;
                 BackgroundJob.Enqueue(() => SendHangFireEmail(user, "Carts Reminder", msg, mailRef, cart.OrderId.ToString()));
-                //await _emailSender.SendEmailAsync(user.Email, "Carts Reminder", msg);
             }
         }
 
