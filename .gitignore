@@ -259,3 +259,18 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
+
+
+InvoiceController
+PaymentMethodTb.cs
+PaymentTb.cs
+WishListTb.cs
+/POCOX
+POCOX
+/DbModel
+DbModel
+/Migrations
+Migrations
+/Logs
+Logs
+AirTableContextCopy.cs

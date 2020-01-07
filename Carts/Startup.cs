@@ -126,17 +126,19 @@ namespace Carts
             app.UseAuthentication();
 
             app.UseHttpsRedirection();
+            app.UseMvc();
 
-            app.UseMvc(routes =>
-            {
-                routes.MapRoute(
-                    name: "default",
-                    template: "api/{controller=Home}/{action=Dashboard}/{id?}");
 
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Dashboard}/{id?}");
-            });
+            //app.UseMvc(routes =>
+            //{
+            //    routes.MapRoute(
+            //        name: "default",
+            //        template: "api/{controller=Home}/{action=Dashboard}/{id?}");
+
+            //    routes.MapRoute(
+            //        name: "default",
+            //        template: "{controller=Home}/{action=Dashboard}/{id?}");
+            //});
 
             //Start cron facility
             //app.ConfigureJobs();
