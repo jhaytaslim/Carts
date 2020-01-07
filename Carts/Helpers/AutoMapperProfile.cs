@@ -12,6 +12,7 @@ namespace Carts.Helpers
             CreateMap<OrderTb, OrderViewModel>().ReverseMap();
             CreateMap<OrderItemTb, OrderItemViewModel>().ReverseMap();
             CreateMap<UsersTb, UserViewModel>().ReverseMap();
+            CreateMap<UsersTb, NewUserViewModel>().ReverseMap();
             CreateMap<ProductTb, ProductViewModel>().ReverseMap();
             CreateMap<InvoiceTb, InvoiceViewModel>().ReverseMap();
 

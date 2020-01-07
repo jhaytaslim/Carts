@@ -71,12 +71,12 @@ namespace Carts.Controllers
         // POST api/values
         [AllowAnonymous]
         [HttpPost]
-        public async Task<ActionResult> AddCustomer([FromBody] UserViewModel model)
+        public async Task<ActionResult> AddCustomer([FromBody] NewUserViewModel model)
         {
             try
             {
 
-                if (ModelState.IsValid)
+                if (!ModelState.IsValid)
                 {
                     return BadRequest(ModelState);
                 }
